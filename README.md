@@ -17,6 +17,8 @@ If you wish to use a specific list, click on the list you want and then click th
 Example:  Clicking on 'completed' list (navigates to https://anilist.co/user/username/animelist/Completed) and clicking the extension
 retrieves a random entry from your 'completed' list.
 
+The way I coded it also allows you to select random entries from other public users' lists if you navigate to their profile.
+
 
 ## GraphQL Queries
 
