@@ -5,6 +5,8 @@ chrome extension to randomly select anime for me.
 
 This isn't super complex because I just wanted a practical introduction to developing browser extensions.
 
+The extension icon is the kanji for gambling 賭 .
+
 
 ## Extension Behavior
 By default going to any url prefixed with https://anilist.co/user/username/ and clicking the extension will open a new tab with a
