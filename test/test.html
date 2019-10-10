@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vanilla JS GraphQL</title>
+  </head>
+  <body>
+    <p>Simple test to query GraphQL API for user using username</p>
+    <form id="anilist-search">
+      <input type="text" id="search" name="search" placeholder="User..." autocomplete="off" />
+      <button type="submit">Enter</button> <!-- barrettotte:{id: 247578} -->
+    </form>
+    <script>
+      const form = document.querySelector("#anilist-search");
+      const getUserQuery = (search) => `{User(search:"${search}"){id name siteUrl stats{watchedTime}}}`;
+      const output = ({data}) => console.log(data);
+      const loadAnilist = (ev) => {
+        ev.preventDefault();
+        const options = {
+          method: "POST", 
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({query: getUserQuery(form.elements["search"].value)})
+        };
+        fetch("https://graphql.anilist.co", options).then(res => res.json()).then(output);
+        form.reset();
+      }
+      form.addEventListener("submit", loadAnilist);
+    </script>
+  </body>
+</html>
