@@ -17,7 +17,27 @@ retrieves a random entry from your 'completed' list.
 
 
 ## GraphQL Queries
-* Get user by username ```{User(search:"${username}"){id name}}```
-* Get anime list by userId and status ```{MediaListCollection(userId:${id},type:ANIME,status:${status}){lists{entries{mediaId}}}}```
+
+Get user by username 
+```javascript
+{
+  User(search: "${username}"){
+    id name
+  }
+}
+```
+
+Get anime list by userId and status 
+```javascript
+{
+  MediaListCollection(userId: ${id}, type: ANIME, status: ${status}){
+    lists{
+      entries{
+        mediaId
+      }
+    }
+  }
+}
+```
 
 
