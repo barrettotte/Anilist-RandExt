@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 
             var split = window.location.href.split('/');
             const username = split[4];
-            const status = convertStatus(((split.length < 6 || split[6] === '') ? 'planning' : split[6]).toUpperCase());
+            const status = convertStatus(split[6]);
             const queryUser = `{User(search:"${username}"){id name}}`;
 
             queryGqlAsync(queryUser, gqlHref).then(userData => {
@@ -37,6 +37,7 @@ Array.prototype.pickRandom = function(){
 
 // List titles and actual statuses are slightly different
 function convertStatus(status){
+    status = (typeof status === 'undefined' || status === null) ? "PLANNING" : status.toUpperCase();
     const conversions = {
        "WATCHING": "CURRENT",
        "REWATCHING": "REPEATING",
