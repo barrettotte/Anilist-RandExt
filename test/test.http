@@ -1,7 +1,6 @@
 # Testing Anilist GraphQL queries
 
 
-
 ### Get user  (barrettotte -> id: 247578)
 POST https://graphql.anilist.co HTTP/1.1
 Content-Type: application/json
@@ -11,7 +10,6 @@ Content-Type: application/json
 }
 
 
-
 ### Get anime list of user (array of lists)
 POST https://graphql.anilist.co HTTP/1.1
 Content-Type: application/json
@@ -19,5 +17,4 @@ Content-Type: application/json
 {
     "query": "{MediaListCollection(userId:247578, type:ANIME){lists{name entries{id mediaId}}}}"
 }
-
 
