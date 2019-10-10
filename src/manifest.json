@@ -1,6 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Anilist Random Selection",
+    "author": "Barrett Otte",
     "description": "Randomly select an item from your Anilist planning list",
     "version": "1.0",
     "background": {
@@ -20,7 +21,12 @@
         }
     ],
     "browser_action": {
-        "default_icon": "icon.png"
+        "default_icon": "icon128.png"
+    },
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png" 
     },
     "permissions": [
         "activeTab"
