@@ -9,11 +9,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
             const username = split[4];
             const status = convertStatus(((split.length < 6 || split[6] === '') ? 'planning' : split[6]).toUpperCase());
             const queryUser = `{User(search:"${username}"){id name}}`;
+
             queryGqlAsync(queryUser, gqlHref).then(userData => {
                 const id = userData['data']['User']['id'];
                 const queryList = `{MediaListCollection(userId:${id},type:ANIME,status:${status}){lists{entries{mediaId}}}}`;
+
                 queryGqlAsync(queryList, gqlHref).then(listData => {
                     const lists = listData['data']['MediaListCollection']['lists'];
+                    
                     if(lists.length > 0){
                         chrome.runtime.sendMessage({
                             'message': 'open_new_tab',
