@@ -9,7 +9,7 @@ The extension icon is the kanji for gambling 賭 .
 
 
 ## Extension Behavior
-By default going to any url prefixed with https://anilist.co/user/username/ and clicking the extension will open a new tab with a
+By default, navigating to any url prefixed with https://anilist.co/user/username/ and clicking the extension will open a new tab with a
 random anime from your 'planning' list.
 
 If you wish to use a specific list, click on the list you want and then click the extension.
@@ -17,7 +17,7 @@ If you wish to use a specific list, click on the list you want and then click th
 Example:  Clicking on 'completed' list (navigates to https://anilist.co/user/username/animelist/Completed) and clicking the extension
 retrieves a random entry from your 'completed' list.
 
-The way I coded it also allows you to select random entries from other public users' lists if you navigate to their profile.
+The way I coded th extension also allows you to select random entries from other public users' lists if you navigate to their profile.
 
 
 ## GraphQL Queries
