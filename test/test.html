@@ -7,17 +7,18 @@
   <body>
     <p>Simple test to query GraphQL API for user using username</p>
     <form id="anilist-search">
-      <input type="text" id="search" name="search" placeholder="User..." autocomplete="off" />
-      <button type="submit">Enter</button> <!-- barrettotte:{id: 247578} -->
+      <input type="text" id="search" name="search" placeholder="User..." autocomplete="off"/>
+      <button type="submit">Enter</button> <!-- barrettotte: {id: 247578} -->
     </form>
     <script>
       const form = document.querySelector("#anilist-search");
       const getUserQuery = (search) => `{User(search:"${search}"){id name siteUrl stats{watchedTime}}}`;
       const output = ({data}) => console.log(data);
-      const loadAnilist = (ev) => {
-        ev.preventDefault();
+
+      const loadAnilist = (e) => {
+        e.preventDefault();
         const options = {
-          method: "POST", 
+          method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({query: getUserQuery(form.elements["search"].value)})
         };
